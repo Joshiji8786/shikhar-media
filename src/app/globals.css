@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --bg: #F7F0E6;
+  --bg-dark: #1C1A15;
+  --forest: #2C3E2D;
+  --forest-light: #3D5C3E;
+  --terracotta: #C4522A;
+  --terracotta-light: #E06B3A;
+  --saffron: #E8A020;
+  --cream: #F7F0E6;
+  --mist: #B8C5BC;
+  --ink: #1C1A15;
+  --snow: #F9F6F0;
+
+  /* Spacing tokens */
+  --section-py: 160px;
+  --section-px: 80px;
+  --container-max: 1200px;
+  --gap-xl: 80px;
+  --gap-lg: 48px;
+  --gap-md: 32px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── Typography ── */
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-heading {
+  font-family: 'Syne', sans-serif;
+}
+
+/* ── Layout ── */
+.site-section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+  padding-left: var(--section-px);
+  padding-right: var(--section-px);
+}
+
+.site-container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-py: 96px;
+    --section-px: 28px;
+  }
+}
+
+/* ── Section header spacing ── */
+.section-header {
+  margin-bottom: 80px;
+}
+
+.section-header-spread {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .section-header-spread {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+/* ── Custom cursor ── */
+.cursor {
+  width: 12px;
+  height: 12px;
+  background: var(--terracotta);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease, width 0.2s, height 0.2s;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-follower {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--terracotta);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+}
+
+/* ── Aipan pattern background ── */
+.aipan-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C4522A' stroke-width='0.5' opacity='0.3'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3Cline x1='10' y1='40' x2='70' y2='40'/%3E%3Cline x1='40' y1='10' x2='40' y2='70'/%3E%3Cline x1='18' y1='18' x2='62' y2='62'/%3E%3Cline x1='62' y1='18' x2='18' y2='62'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── Section label ── */
+.section-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  display: block;
+  margin-bottom: 24px;
+}
+
+/* ── Noise texture overlay ── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+/* ── Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 20s linear infinite; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-inner { animation: marquee 18s linear infinite; }
+
+/* ═══════════════════════════════════════════════════════
+   SERVICE CARDS — full hover flip (bg dark → all text white)
+   ═══════════════════════════════════════════════════════ */
+.service-card {
+  padding: 48px 40px;
+  transition: background-color 0.35s ease;
+}
+
+/* All text inside goes light on hover */
+.service-card:hover h3,
+.service-card:hover li {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.service-card:hover .service-num {
+  color: #E8A020 !important;
+}
+
+.service-card:hover svg {
+  opacity: 0.35;
+  stroke: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   CASE STUDY ROWS — full hover flip (bg dark → all text white)
+   ═══════════════════════════════════════════════════════ */
+.case-row {
+  padding: 60px 48px;
+  transition: background-color 0.4s ease;
+}
+
+/* Main client name */
+.case-row:hover .case-client {
+  color: white !important;
+}
+
+/* Type label  */
+.case-row:hover .case-type {
+  color: #E8A020 !important;
+}
+
+/* Handle / subtext */
+.case-row:hover .case-handle {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Stat numbers */
+.case-row:hover .case-stat-value {
+  color: #C4522A !important;
+}
+
+/* Stat labels */
+.case-row:hover .case-stat-label {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   TESTIMONIAL CARDS
+   ═══════════════════════════════════════════════════════ */
+.testimonial-card {
+  padding: 48px;
+}
+
+/* ── Contact form ── */
+.contact-form-wrap {
+  padding: 56px;
+}
+
+/* ── Form inputs ── */
+.form-input {
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 16px 20px;
+  font-size: 0.9rem;
+  font-family: 'Syne', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-top: 8px;
+}
+
+.form-input:focus {
+  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.15);
+}
+
+.form-input::placeholder {
+  color: rgba(255,255,255,0.35);
+}
+
+.form-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  display: block;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
