@@ -483,7 +483,7 @@ export default function Home() {
                     
                     // TODO: Replace with your actual Web3Forms Access Key
                     // Get it for free at https://web3forms.com/
-                    formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY_HERE");
+                    formData.append("access_key", "231d605b-06d8-4d13-9177-d073cb547a67");
                     formData.append("subject", "New Lead from Shikhar Media Website");
 
                     try {
