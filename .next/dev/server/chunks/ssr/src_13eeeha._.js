@@ -4133,7 +4133,7 @@ function Home() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
                 style: {
-                    backgroundColor: "#C4522A",
+                    backgroundColor: "#FFFFFF",
                     padding: "clamp(40px, 6vw, 60px) clamp(20px, 6vw, 80px)",
                     position: "relative",
                     overflow: "hidden"
@@ -4146,8 +4146,7 @@ function Home() {
                             backgroundImage: "url(/images/aipan-art.jpg)",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            opacity: 0.04,
-                            mixBlendMode: "overlay",
+                            opacity: 0.03,
                             pointerEvents: "none"
                         }
                     }, void 0, false, {
@@ -4158,7 +4157,7 @@ function Home() {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
                             marginBottom: 48,
-                            opacity: 0.45,
+                            opacity: 0.6,
                             position: "relative",
                             zIndex: 10
                         },
@@ -4193,7 +4192,7 @@ function Home() {
                                         className: "font-heading",
                                         style: {
                                             fontWeight: 800,
-                                            color: "white",
+                                            color: "#1C1A15",
                                             fontSize: "1.25rem"
                                         },
                                         children: [
@@ -4218,7 +4217,7 @@ function Home() {
                                         className: "font-heading",
                                         style: {
                                             fontSize: "0.78rem",
-                                            color: "rgba(255,255,255,0.45)",
+                                            color: "rgba(28,26,21,0.6)",
                                             letterSpacing: "0.15em",
                                             textTransform: "uppercase",
                                             marginTop: 10
@@ -4255,11 +4254,11 @@ function Home() {
                                             fontSize: "0.78rem",
                                             letterSpacing: "0.12em",
                                             textTransform: "uppercase",
-                                            color: "rgba(255,255,255,0.45)",
+                                            color: "rgba(28,26,21,0.6)",
                                             textDecoration: "none"
                                         },
                                         onMouseEnter: (e)=>e.currentTarget.style.color = "#C4522A",
-                                        onMouseLeave: (e)=>e.currentTarget.style.color = "rgba(255,255,255,0.45)",
+                                        onMouseLeave: (e)=>e.currentTarget.style.color = "rgba(28,26,21,0.6)",
                                         children: href.replace("#", "")
                                     }, href, false, {
                                         fileName: "[project]/src/app/page.tsx",
@@ -4275,7 +4274,7 @@ function Home() {
                                 className: "font-heading",
                                 style: {
                                     fontSize: "0.78rem",
-                                    color: "rgba(255,255,255,0.4)"
+                                    color: "rgba(28,26,21,0.5)"
                                 },
                                 children: "© 2026 Shikhar Media · Kumaon, Uttarakhand"
                             }, void 0, false, {

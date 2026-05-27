@@ -511,32 +511,32 @@ export default function Home() {
       </section>
 
       {/* ─── FOOTER ─── */}
-      <footer style={{ backgroundColor: "#C4522A", padding: "clamp(40px, 6vw, 60px) clamp(20px, 6vw, 80px)", position: "relative", overflow: "hidden" }}>
+      <footer style={{ backgroundColor: "#FFFFFF", padding: "clamp(40px, 6vw, 60px) clamp(20px, 6vw, 80px)", position: "relative", overflow: "hidden" }}>
         {/* Aipan Background */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.04, mixBlendMode: "overlay", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.03, pointerEvents: "none" }} />
         {/* Aipan border divider at top */}
-        <div style={{ marginBottom: 48, opacity: 0.45, position: "relative", zIndex: 10 }}>
+        <div style={{ marginBottom: 48, opacity: 0.6, position: "relative", zIndex: 10 }}>
           <AipanBorderPattern color="#C4522A" opacity={1} />
         </div>
         <div className="site-container footer-inner" style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between", gap: 24, position: "relative", zIndex: 10 }}>
           <div>
-            <div className="font-heading" style={{ fontWeight: 800, color: "white", fontSize: "1.25rem" }}>
+            <div className="font-heading" style={{ fontWeight: 800, color: "#1C1A15", fontSize: "1.25rem" }}>
               <span style={{ color: "#C4522A" }}>SHIKHAR</span> MEDIA
             </div>
-            <div className="font-heading" style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.45)", letterSpacing: "0.15em", textTransform: "uppercase", marginTop: 10 }}>
+            <div className="font-heading" style={{ fontSize: "0.78rem", color: "rgba(28,26,21,0.6)", letterSpacing: "0.15em", textTransform: "uppercase", marginTop: 10 }}>
               A brand by OrbitAIM Technologies
             </div>
           </div>
           <div className="footer-links" style={{ display: "flex", flexWrap: "wrap", gap: "clamp(12px, 2vw, 32px)" }}>
             {["#services", "#work", "#niche", "#about", "#contact"].map((href) => (
-              <a key={href} href={href} className="font-heading" style={{ fontSize: "0.78rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}
+              <a key={href} href={href} className="font-heading" style={{ fontSize: "0.78rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(28,26,21,0.6)", textDecoration: "none" }}
                 onMouseEnter={e => (e.currentTarget.style.color = "#C4522A")}
-                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>
+                onMouseLeave={e => (e.currentTarget.style.color = "rgba(28,26,21,0.6)")}>
                 {href.replace("#", "")}
               </a>
             ))}
           </div>
-          <div className="font-heading" style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.4)" }}>
+          <div className="font-heading" style={{ fontSize: "0.78rem", color: "rgba(28,26,21,0.5)" }}>
             © 2026 Shikhar Media · Kumaon, Uttarakhand
           </div>
         </div>
