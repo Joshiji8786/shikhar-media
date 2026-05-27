@@ -25,6 +25,11 @@ export default function Home() {
 
   const [hoveredService, setHoveredService] = useState<string | null>(null);
 
+  // Form state
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+
+
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
       if (cursorRef.current) {
@@ -459,29 +464,93 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="contact-form-wrap" style={{ backgroundColor: "rgba(28,26,21,0.2)", backdropFilter: "blur(8px)" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-                {[
-                  { label: "Property Name", placeholder: "Your hotel or homestay" },
-                  { label: "Your Name", placeholder: "Owner / Manager" },
-                  { label: "Email", placeholder: "you@yourproperty.com" },
-                  { label: "Location in Kumaon", placeholder: "Nainital, Mukteshwar, Corbett..." },
-                ].map((f) => (
-                  <div key={f.label} className="form-field">
-                    <label className="form-label">{f.label}</label>
-                    <input type="text" placeholder={f.placeholder} className="form-input" />
+            <div className="contact-form-wrap" style={{ backgroundColor: "rgba(28,26,21,0.2)", backdropFilter: "blur(8px)", position: "relative" }}>
+              {formStatus === "success" ? (
+                <div style={{ padding: "40px 20px", textAlign: "center", color: "white" }}>
+                  <div style={{ width: 64, height: 64, backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E8A020" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
-                ))}
-                <textarea placeholder="Tell us about your property and marketing goals..." rows={4} className="form-input" style={{ resize: "none", marginTop: 8 }} />
-                <button
-                  className="font-heading"
-                  style={{ width: "100%", backgroundColor: "white", color: "#C4522A", fontWeight: 700, fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", padding: "20px 0", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, transition: "background 0.3s, color 0.3s", marginTop: 8 }}
-                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#C4522A"; e.currentTarget.style.color = "white"; }}
-                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = "white"; e.currentTarget.style.color = "#C4522A"; }}
+                  <h3 className="font-display" style={{ fontSize: "2rem", marginBottom: 16 }}>Message Sent.</h3>
+                  <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.6 }}>Thank you for reaching out. We will get back to you within 24 hours.</p>
+                  <button onClick={() => setFormStatus("idle")} style={{ marginTop: 32, background: "none", border: "1px solid rgba(255,255,255,0.2)", color: "white", padding: "12px 24px", borderRadius: 100, cursor: "pointer", fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Send another</button>
+                </div>
+              ) : (
+                <form 
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    setFormStatus("submitting");
+                    const formData = new FormData(e.currentTarget);
+                    
+                    // TODO: Replace with your actual Web3Forms Access Key
+                    // Get it for free at https://web3forms.com/
+                    formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY_HERE");
+                    formData.append("subject", "New Lead from Shikhar Media Website");
+
+                    try {
+                      const res = await fetch("https://api.web3forms.com/submit", {
+                        method: "POST",
+                        body: formData
+                      });
+                      if (res.ok) {
+                        setFormStatus("success");
+                      } else {
+                        setFormStatus("error");
+                      }
+                    } catch (err) {
+                      setFormStatus("error");
+                    }
+                  }}
+                  style={{ display: "flex", flexDirection: "column", gap: 24 }}
                 >
-                  Send Message <ArrowRight size={14} />
-                </button>
-              </div>
+                  {[
+                    { name: "property", label: "Property Name", placeholder: "Your hotel or homestay", type: "text" },
+                    { name: "name", label: "Your Name", placeholder: "Owner / Manager", type: "text" },
+                    { name: "email", label: "Email", placeholder: "you@yourproperty.com", type: "email" },
+                    { name: "location", label: "Location in Kumaon", placeholder: "Nainital, Mukteshwar, Corbett...", type: "text" },
+                  ].map((f) => (
+                    <div key={f.label} className="form-field">
+                      <label className="form-label">{f.label}</label>
+                      <input type={f.type} name={f.name} required placeholder={f.placeholder} className="form-input" />
+                    </div>
+                  ))}
+                  <textarea name="message" required placeholder="Tell us about your property and marketing goals..." rows={4} className="form-input" style={{ resize: "none", marginTop: 8 }} />
+                  
+                  {formStatus === "error" && (
+                    <div style={{ color: "#ff6b6b", fontSize: "0.85rem", textAlign: "center", padding: "8px", backgroundColor: "rgba(255,0,0,0.1)", borderRadius: 8 }}>
+                      Something went wrong. Please ensure you have added a valid Web3Forms access key.
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={formStatus === "submitting"}
+                    className="font-heading"
+                    style={{ 
+                      width: "100%", 
+                      backgroundColor: "white", 
+                      color: "#C4522A", 
+                      fontWeight: 700, 
+                      fontSize: "0.7rem", 
+                      letterSpacing: "0.2em", 
+                      textTransform: "uppercase", 
+                      padding: "20px 0", 
+                      border: "none", 
+                      cursor: formStatus === "submitting" ? "not-allowed" : "pointer", 
+                      display: "flex", 
+                      alignItems: "center", 
+                      justifyContent: "center", 
+                      gap: 10, 
+                      transition: "background 0.3s, color 0.3s", 
+                      marginTop: 8,
+                      opacity: formStatus === "submitting" ? 0.7 : 1
+                    }}
+                    onMouseEnter={e => { if (formStatus !== "submitting") { e.currentTarget.style.backgroundColor = "#1C1A15"; e.currentTarget.style.color = "white"; } }}
+                    onMouseLeave={e => { if (formStatus !== "submitting") { e.currentTarget.style.backgroundColor = "white"; e.currentTarget.style.color = "#C4522A"; } }}
+                  >
+                    {formStatus === "submitting" ? "Sending..." : <>Send Message <ArrowRight size={14} /></>}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
