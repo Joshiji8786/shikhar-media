@@ -42,7 +42,7 @@ export default function KumaonMap() {
     <div
       style={{
         width: "100%",
-        height: 520,
+        height: "clamp(350px, 50vh, 520px)",
         position: "relative",
         borderRadius: 0,
         overflow: "hidden",

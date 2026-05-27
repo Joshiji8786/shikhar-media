@@ -16,7 +16,7 @@
   --snow: #F9F6F0;
 
   /* Spacing tokens */
-  --section-py: 160px;
+  --section-py: 120px;
   --section-px: 80px;
   --container-max: 1200px;
   --gap-xl: 80px;
@@ -40,6 +40,11 @@ body {
   font-family: 'DM Sans', sans-serif;
   overflow-x: hidden;
   cursor: none;
+}
+
+main {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ── Typography ── */
@@ -68,8 +73,17 @@ body {
 
 @media (max-width: 768px) {
   :root {
-    --section-py: 96px;
-    --section-px: 28px;
+    --section-py: 80px;
+    --section-px: 24px;
+  }
+
+  body {
+    cursor: auto;
+  }
+
+  .cursor,
+  .cursor-follower {
+    display: none !important;
   }
 }
 
@@ -198,6 +212,14 @@ body {
   transition: background-color 0.4s ease;
 }
 
+.case-row-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
 /* Main client name */
 .case-row:hover .case-client {
   color: white !important;
@@ -272,3 +294,168 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE RESPONSIVE OVERRIDES
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── Cursor: hide on mobile ── */
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto;
+  }
+
+  /* ── Navbar ── */
+  .nav-links,
+  .nav-cta-desktop {
+    display: none !important;
+  }
+
+  .nav-hamburger {
+    display: flex !important;
+  }
+
+  .nav-inner {
+    padding: 20px 24px !important;
+  }
+
+  /* ── Hero ── */
+  .hero-section {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-bottom: 64px !important;
+    padding-top: 120px !important;
+    min-height: 100svh;
+  }
+
+  .hero-headline {
+    font-size: clamp(3rem, 14vw, 5rem) !important;
+    margin-bottom: 40px !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+    margin-top: 56px !important;
+  }
+
+  /* ── Culture 2-col grid → stack ── */
+  .culture-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Niche category cards ── */
+  .niche-cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Services grid ── */
+  .service-card {
+    padding: 36px 28px !important;
+  }
+
+  /* ── Case study rows ── */
+  .case-row {
+    padding: 40px 24px !important;
+  }
+
+  .case-row-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+  }
+
+  .case-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* ── Testimonials ── */
+  .testimonial-card {
+    padding: 36px 28px !important;
+  }
+
+  /* ── Contact ── */
+  .contact-form-wrap {
+    padding: 36px 24px !important;
+  }
+
+  /* ── Footer ── */
+  .footer-inner {
+    padding: 48px 24px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 32px !important;
+  }
+
+  .footer-links {
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+  }
+
+  /* ── Map legend strip ── */
+  .map-legend {
+    padding: 20px 24px !important;
+    gap: 8px !important;
+  }
+
+  /* ── Marquee strip ── */
+  .marquee-item {
+    padding: 0 24px !important;
+  }
+
+  /* ── Pricing cards ── */
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Value prop grid ── */
+  .value-prop-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Village panorama stats ── */
+  .panorama-stats {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+
+  .panorama-stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+    padding: 0 0 32px !important;
+  }
+
+  .panorama-stat-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* ── Tighter on very small phones ── */
+  .case-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .niche-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+
