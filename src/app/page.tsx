@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
-import { AipanPattern, AipanBorderPattern } from "@/components/AipanPattern";
 import PricingSection from "@/components/PricingSection";
 import { ArrowRight, MapPin, Zap, Globe, Megaphone, Star, Mail, Camera } from "lucide-react";
 import { siteMedia, servedAreas } from "@/content/siteContent";
@@ -85,10 +84,6 @@ export default function Home() {
             zIndex: 1,
           }}
         />
-        {/* Aipan decorations */}
-        <div style={{ position: "absolute", top: 64, right: 0, width: 500, height: 500, opacity: 0.15, zIndex: 2 }}>
-          <AipanPattern opacity={0.18} />
-        </div>
 
         {/* Location tag */}
         <div style={{ position: "relative", zIndex: 10, display: "flex", alignItems: "center", gap: 8, marginBottom: 40 }}>
@@ -182,15 +177,7 @@ export default function Home() {
       <section id="niche" className="site-section" style={{ backgroundColor: "#C4522A", position: "relative", overflow: "hidden" }}>
         {/* Aipan Background */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.04, mixBlendMode: "overlay", pointerEvents: "none" }} />
-        {/* Large Aipan medallion — decorative right side */}
-        <div style={{ position: "absolute", right: -80, top: "20%", width: 560, height: 560, opacity: 0.15, pointerEvents: "none" }}>
-          <AipanPattern color="#E8A020" opacity={1} />
-        </div>
-        {/* Smaller medallion bottom-left */}
-        <div style={{ position: "absolute", left: -40, bottom: -40, width: 280, height: 280, opacity: 0.1, pointerEvents: "none" }}>
-          <AipanPattern color="#C4522A" opacity={1} />
-        </div>
-        
+
         <div className="site-container" style={{ position: "relative", zIndex: 10 }}>
           <span className="section-label" style={{ color: "#E8A020", fontSize: "0.82rem" }}>Our Niche &amp; Territory</span>
           
@@ -289,9 +276,6 @@ export default function Home() {
       <section id="services" className="site-section" style={{ backgroundColor: "#F7F0E6", position: "relative", overflow: "hidden" }}>
         {/* Aipan Art Background */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.03, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: 0, left: 0, width: "100%" }}>
-          <AipanBorderPattern />
-        </div>
         <div className="site-container">
           <div className="section-header-spread">
             <div>
@@ -370,10 +354,6 @@ export default function Home() {
           }}>
             {/* Aipan Background for inner card */}
             <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.04, mixBlendMode: "overlay", pointerEvents: "none" }} />
-            {/* Background watermark */}
-            <div style={{ position: "absolute", right: -40, bottom: -40, width: 240, height: 240, opacity: 0.08, pointerEvents: "none" }}>
-              <AipanPattern color="#E8A020" opacity={1} />
-            </div>
 
             <div>
               <span className="font-heading" style={{ fontSize: "0.75rem", color: "#E8A020", letterSpacing: "0.2em", textTransform: "uppercase", display: "block", marginBottom: 16 }}>
@@ -426,9 +406,6 @@ export default function Home() {
       <section id="about" className="site-section" style={{ backgroundColor: "#F7F0E6", position: "relative", overflow: "hidden" }}>
         {/* Aipan Art Background */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.03, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", right: 0, bottom: 0, width: 400, height: 400, opacity: 0.15 }}>
-          <AipanPattern />
-        </div>
         <div className="site-container" style={{ position: "relative", zIndex: 10 }}>
           <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
             <span className="section-label" style={{ margin: "0 auto 16px" }}>About Shikhar</span>
@@ -514,10 +491,6 @@ export default function Home() {
       <footer style={{ backgroundColor: "#FFFFFF", padding: "clamp(40px, 6vw, 60px) clamp(20px, 6vw, 80px)", position: "relative", overflow: "hidden" }}>
         {/* Aipan Background */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.03, pointerEvents: "none" }} />
-        {/* Aipan border divider at top */}
-        <div style={{ marginBottom: 48, opacity: 0.6, position: "relative", zIndex: 10 }}>
-          <AipanBorderPattern color="#C4522A" opacity={1} />
-        </div>
         <div className="site-container footer-inner" style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between", gap: 24, position: "relative", zIndex: 10 }}>
           <div>
             <div className="font-heading" style={{ fontWeight: 800, color: "#1C1A15", fontSize: "1.25rem" }}>
