@@ -179,9 +179,9 @@ export default function Home() {
       </div>
 
       {/* ─── NICHE & TERRITORY ─── */}
-      <section id="niche" className="site-section" style={{ backgroundColor: "#1C1A15", position: "relative", overflow: "hidden" }}>
-        {/* Mountain Background */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/hero-bg.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.05, mixBlendMode: "overlay", pointerEvents: "none" }} />
+      <section id="niche" className="site-section" style={{ backgroundColor: "#C4522A", position: "relative", overflow: "hidden" }}>
+        {/* Aipan Background */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.04, mixBlendMode: "overlay", pointerEvents: "none" }} />
         {/* Large Aipan medallion — decorative right side */}
         <div style={{ position: "absolute", right: -80, top: "20%", width: 560, height: 560, opacity: 0.15, pointerEvents: "none" }}>
           <AipanPattern color="#E8A020" opacity={1} />
@@ -257,10 +257,10 @@ export default function Home() {
       {/* ─── CULTURE & HERITAGE SECTION ─── */}
       <section
         id="culture"
-        style={{ backgroundColor: "#C4522A", position: "relative", overflow: "hidden" }}
+        style={{ backgroundColor: "#1C1A15", position: "relative", overflow: "hidden" }}
       >
-        {/* Aipan Art Background */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.04, mixBlendMode: "overlay", pointerEvents: "none" }} />
+        {/* Mountain Background */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/hero-bg.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.05, mixBlendMode: "overlay", pointerEvents: "none" }} />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(450px, 100%), 1fr))" }}>
           {/* LEFT — Aipan Art Image */}
           <div
@@ -316,7 +316,7 @@ export default function Home() {
               <div
                 key={s.title}
                 className="service-card"
-                style={{ backgroundColor: isHovered ? "#1C1A15" : "#F7F0E6", transition: "background 0.3s" }}
+                style={{ backgroundColor: isHovered ? "#C4522A" : "#F7F0E6", transition: "background 0.3s" }}
                 onMouseEnter={() => setHoveredService(s.title)}
                 onMouseLeave={() => setHoveredService(null)}
               >
@@ -358,7 +358,7 @@ export default function Home() {
           </div>
           
           <div style={{ 
-            backgroundColor: "#1C1A15", 
+            backgroundColor: "#C4522A", 
             borderRadius: "16px", 
             padding: "clamp(24px, 5vw, 48px)",
             color: "white",
@@ -368,6 +368,8 @@ export default function Home() {
             position: "relative",
             overflow: "hidden"
           }}>
+            {/* Aipan Background for inner card */}
+            <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.04, mixBlendMode: "overlay", pointerEvents: "none" }} />
             {/* Background watermark */}
             <div style={{ position: "absolute", right: -40, bottom: -40, width: 240, height: 240, opacity: 0.08, pointerEvents: "none" }}>
               <AipanPattern color="#E8A020" opacity={1} />
@@ -497,7 +499,7 @@ export default function Home() {
                 <button
                   className="font-heading"
                   style={{ width: "100%", backgroundColor: "white", color: "#C4522A", fontWeight: 700, fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", padding: "20px 0", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, transition: "background 0.3s, color 0.3s", marginTop: 8 }}
-                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#1C1A15"; e.currentTarget.style.color = "white"; }}
+                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#C4522A"; e.currentTarget.style.color = "white"; }}
                   onMouseLeave={e => { e.currentTarget.style.backgroundColor = "white"; e.currentTarget.style.color = "#C4522A"; }}
                 >
                   Send Message <ArrowRight size={14} />
@@ -509,9 +511,9 @@ export default function Home() {
       </section>
 
       {/* ─── FOOTER ─── */}
-      <footer style={{ backgroundColor: "#0E0C09", padding: "clamp(40px, 6vw, 60px) clamp(20px, 6vw, 80px)", position: "relative", overflow: "hidden" }}>
-        {/* Mountain Background */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/hero-bg.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.05, mixBlendMode: "overlay", pointerEvents: "none" }} />
+      <footer style={{ backgroundColor: "#C4522A", padding: "clamp(40px, 6vw, 60px) clamp(20px, 6vw, 80px)", position: "relative", overflow: "hidden" }}>
+        {/* Aipan Background */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.04, mixBlendMode: "overlay", pointerEvents: "none" }} />
         {/* Aipan border divider at top */}
         <div style={{ marginBottom: 48, opacity: 0.45, position: "relative", zIndex: 10 }}>
           <AipanBorderPattern color="#C4522A" opacity={1} />

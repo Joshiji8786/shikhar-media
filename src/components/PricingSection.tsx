@@ -11,9 +11,9 @@ export default function PricingSection() {
   });
 
   return (
-    <section id="pricing" className="site-section" style={{ backgroundColor: "#1C1A15", position: "relative", overflow: "hidden", paddingLeft: "clamp(24px, 6vw, 80px)", paddingRight: "clamp(24px, 6vw, 80px)" }}>
-      {/* Mountain Background */}
-      <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/hero-bg.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.05, mixBlendMode: "overlay", pointerEvents: "none" }} />
+    <section id="pricing" className="site-section" style={{ backgroundColor: "#C4522A", position: "relative", overflow: "hidden", paddingLeft: "clamp(24px, 6vw, 80px)", paddingRight: "clamp(24px, 6vw, 80px)" }}>
+      {/* Aipan Background */}
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/aipan-art.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.04, mixBlendMode: "overlay", pointerEvents: "none" }} />
       <div className="site-container" style={{ position: "relative", zIndex: 10 }}>
         
         {/* HEADER */}
@@ -31,7 +31,7 @@ export default function PricingSection() {
 
         {/* AUDIT PROMO */}
         <div style={{
-          backgroundColor: "#2C3E2D",
+          backgroundColor: "#FFFFFF",
           borderRadius: "16px",
           padding: "clamp(24px, 4vw, 36px)",
           border: "1px solid rgba(255,255,255,0.08)",
@@ -46,7 +46,7 @@ export default function PricingSection() {
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, backgroundColor: "rgba(232,160,32,0.15)", color: "#E8A020", padding: "6px 12px", borderRadius: "100px", fontSize: "0.75rem", fontWeight: 700, marginBottom: 16 }}>
               <Zap size={14} /> Free Audit during our stay
             </div>
-            <h3 className="font-display" style={{ fontSize: "2rem", color: "white", margin: 0 }}>
+            <h3 className="font-display" style={{ fontSize: "2rem", color: "#1C1A15", margin: 0 }}>
               {pricingContent.audit.title}
             </h3>
           </div>
@@ -54,8 +54,8 @@ export default function PricingSection() {
             <ul style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14 }}>
               {pricingContent.audit.items.map((item) => (
                 <li key={item.id} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  <Check size={16} color="#E8A020" style={{ flexShrink: 0 }} />
-                  <span style={{ color: "white", fontSize: "0.9rem", fontWeight: 600 }}>{item.title}</span>
+                  <Check size={16} color="#C4522A" style={{ flexShrink: 0 }} />
+                  <span style={{ color: "#1C1A15", fontSize: "0.9rem", fontWeight: 600 }}>{item.title}</span>
                 </li>
               ))}
             </ul>
@@ -79,7 +79,7 @@ export default function PricingSection() {
               <div 
                 key={plan.id}
                 style={{
-                  backgroundColor: "rgba(255,255,255,0.03)",
+                  backgroundColor: isExpanded ? "#1C1A15" : "rgba(255,255,255,0.03)",
                   border: `2px solid ${isRec ? "#4A90E2" : isHovered ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.08)"}`,
                   borderRadius: "16px",
                   padding: "clamp(24px, 3vw, 36px) clamp(20px, 3vw, 32px)",
@@ -115,7 +115,7 @@ export default function PricingSection() {
                   onClick={() => setExpandedPlans(prev => ({ ...prev, [plan.id]: !prev[plan.id] }))}
                   style={{
                     width: "100%",
-                    backgroundColor: isExpanded ? "rgba(255,255,255,0.06)" : "#C4522A",
+                    backgroundColor: isExpanded ? "rgba(255,255,255,0.06)" : "#1C1A15",
                     border: "none",
                     color: "white",
                     padding: "14px 20px",
@@ -141,7 +141,7 @@ export default function PricingSection() {
                   }}
                   onMouseLeave={e => {
                     if (!isExpanded) {
-                      e.currentTarget.style.backgroundColor = "#C4522A";
+                      e.currentTarget.style.backgroundColor = "#1C1A15";
                     } else {
                       e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.06)";
                     }
